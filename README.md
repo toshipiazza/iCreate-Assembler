@@ -16,35 +16,22 @@ on page 22 to get the instructions and their intended arguments. The instruction
 map one to one:
 
 ```
-start         Start
-baud          Baud
-control       Control
-safe          Safe
-full          Full
-spot          Spot
-cover         Cover
-demo          Demo
-drive         Drive
-lsd           Low Side Drivers
-led           LEDs
-song          Song
-play          Play
+start         Start                       drivedir      Drive Direct
+baud          Baud                        digout        Digital Outputs
+control       Control                     stream        Stream               
+safe          Safe                        qlist         Query List
+full          Full                        togglestrm    Pause/Resume Stream
+spot          Spot                        sendir        Send IR
+cover         Cover                       script        Script
+demo          Demo                        playscript    Play Script
+drive         Drive                       showscript    Show Script
+lsd           Low Side Drivers            waittime      Wait Time                      
+led           LEDs                        waitdist      Wait Distance
+song          Song                        waitangle     Wait Angle
+play          Play                        waitevent     Wait Event
 sensors       Sensors
 cad           Cover and Dock
 plsd          PWM Low Side Drivers
-drivedir      Drive Direct
-digout        Digital Outputs
-stream        Stream
-qlist         Query List
-togglestrm    Pause/Resume Stream
-sendir        Send IR
-script        Script
-playscript    Play Script
-showscript    Show Script
-waittime      Wait Time
-waitdist      Wait Distance
-waitangle     Wait Angle
-waitevent     Wait Event
 ```
 
 > Note! Using the script command has special syntax. Look in the examples/scripts directory
