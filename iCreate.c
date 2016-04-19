@@ -5,22 +5,18 @@
 
 #include "parser/assembler.tab.h"
 
-char *usage = "USAGE: %s [-h] infile [-o outfile]\n";
-char *outfile = "a.out";
+char *usage = "USAGE: %s [-h] infile\n";
 extern FILE *yyin;
 
 int
 main(int argc, char **argv)
 {
   int c;
-  while ((c = getopt(argc, argv, "hxo:")) != -1)
+  while ((c = getopt(argc, argv, "h:")) != -1)
     switch (c) {
     case 'h':
       fprintf(stderr, usage, argv[0]);
       return EXIT_FAILURE;
-    case 'o':
-      outfile = optarg;
-      break;
     case '?':
       if (optopt == 'o')
         fprintf(stderr, "Option -%c requires an argument.\n", optopt);

@@ -63,6 +63,7 @@ analyze_ast(ast_t *ast)
     for (int i = 0; i < data->len; ++i) {
       printf("%u ", (unsigned char) data->data[i]);
     }
+    printf("\n");
   }
   bin_string_free(data);
 }
