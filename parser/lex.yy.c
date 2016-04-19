@@ -536,8 +536,7 @@ char *yytext;
 #include <stdlib.h>
 void yyerror(char *);
 #include "assembler.tab.h"
-#define ECHO fwrite(yytext, yyleng, 1, yyout)
-#line 541 "lex.yy.c"
+#line 540 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -746,9 +745,9 @@ YY_DECL
 		}
 
 	{
-#line 8 "assembler.l"
+#line 7 "assembler.l"
 
-#line 752 "lex.yy.c"
+#line 751 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -808,175 +807,175 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "assembler.l"
+#line 8 "assembler.l"
 ; /* skip whitespace */
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "assembler.l"
+#line 9 "assembler.l"
 { yylval = atoi(yytext); return integer; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "assembler.l"
+#line 10 "assembler.l"
 return start;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "assembler.l"
+#line 11 "assembler.l"
 return baud;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 13 "assembler.l"
+#line 12 "assembler.l"
 return control;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 14 "assembler.l"
+#line 13 "assembler.l"
 return safe;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 15 "assembler.l"
+#line 14 "assembler.l"
 return full;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 16 "assembler.l"
+#line 15 "assembler.l"
 return spot;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 17 "assembler.l"
+#line 16 "assembler.l"
 return cover;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 18 "assembler.l"
+#line 17 "assembler.l"
 return demo;
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 19 "assembler.l"
+#line 18 "assembler.l"
 return drive;
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 20 "assembler.l"
+#line 19 "assembler.l"
 return lsd;
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 21 "assembler.l"
+#line 20 "assembler.l"
 return led;
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 22 "assembler.l"
+#line 21 "assembler.l"
 return song;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 23 "assembler.l"
+#line 22 "assembler.l"
 return play;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 24 "assembler.l"
+#line 23 "assembler.l"
 return sensors;
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 25 "assembler.l"
+#line 24 "assembler.l"
 return cad;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 26 "assembler.l"
+#line 25 "assembler.l"
 return plsd;
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 27 "assembler.l"
+#line 26 "assembler.l"
 return drivedir;
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 28 "assembler.l"
+#line 27 "assembler.l"
 return digout;
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 29 "assembler.l"
+#line 28 "assembler.l"
 return stream;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 30 "assembler.l"
+#line 29 "assembler.l"
 return qlist;
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 31 "assembler.l"
+#line 30 "assembler.l"
 return togglestrm;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 32 "assembler.l"
+#line 31 "assembler.l"
 return sendir;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 33 "assembler.l"
+#line 32 "assembler.l"
 return script;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 34 "assembler.l"
+#line 33 "assembler.l"
 return playscript;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 35 "assembler.l"
+#line 34 "assembler.l"
 return showscript;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 36 "assembler.l"
+#line 35 "assembler.l"
 return waittime;
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 37 "assembler.l"
+#line 36 "assembler.l"
 return waitdist;
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 38 "assembler.l"
+#line 37 "assembler.l"
 return waitangle;
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 39 "assembler.l"
+#line 38 "assembler.l"
 return waitevent;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 40 "assembler.l"
+#line 39 "assembler.l"
 return end;
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 41 "assembler.l"
+#line 40 "assembler.l"
 { yyerror("invalid instruction or operand"); return EXIT_FAILURE; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 42 "assembler.l"
+#line 41 "assembler.l"
 ECHO;
 	YY_BREAK
-#line 980 "lex.yy.c"
+#line 979 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1971,7 +1970,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 42 "assembler.l"
+#line 41 "assembler.l"
 
 
 

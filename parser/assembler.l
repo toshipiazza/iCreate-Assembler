@@ -2,7 +2,6 @@
 #include <stdlib.h>
 void yyerror(char *);
 #include "assembler.tab.h"
-#define ECHO fwrite(yytext, yyleng, 1, yyout)
 %}
 
 %%
