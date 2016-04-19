@@ -5,8 +5,9 @@ void yyerror(char *);
 %}
 
 %%
+";".*      ; /* skip comments */
 [ \t\n]    ; /* skip whitespace */
-"-"?[0-9]+ { yylval = atoi(yytext); return integer; }
+"-"?[0-9]+ { yylval.val = atoi(yytext); return integer; }
 "start"      return start;
 "baud"       return baud;
 "control"    return control;

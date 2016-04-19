@@ -36,17 +36,19 @@ main(int argc, char **argv)
     }
 
   if (argc - optind != 1) {
-    fprintf(stderr, "ERROR: USAGE\n");
+    fprintf(stderr, "ERROR: INVALID ARGUMENTS\n");
     fprintf(stderr, usage, argv[0]);
     return EXIT_FAILURE;
   }
 
   yyin = fopen(argv[optind], "r");
   if (!yyin) {
-    perror("infile: ");
+    fprintf(stderr, "ERROR: INFILE\n%s: ", argv[optind]);
+    perror("");
     return EXIT_FAILURE;
   }
 
   yyparse();
+  fclose(yyin);
   return EXIT_SUCCESS;
 }

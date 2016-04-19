@@ -1,6 +1,6 @@
-CFLAGS  ?= -Wall -g -D_DEBUG -std=gnu89
+CFLAGS  ?= -Wall -g -D_DEBUG -std=gnu99 -foptimize-sibling-calls -m32
 
-SOURCES := iCreate.c ast/ast.c parser/assembler.tab.c parser/lex.yy.c parser/attributes.c
+SOURCES := iCreate.c ast/ast.c ast/analysis.c parser/assembler.tab.c parser/lex.yy.c
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))
 
 all: iCreate

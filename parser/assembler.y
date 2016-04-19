@@ -1,5 +1,7 @@
 %{
 #include <stdio.h>
+#include "../ast/ast.h"
+#include "../ast/analysis.h"
 int yylex(void);
 void yyerror(char *);
 %}
@@ -36,47 +38,73 @@ void yyerror(char *);
 %token waitevent
 %token end
 
+%union {
+  int    val;
+  struct _ast_t *ast;
+}
+
+%type<ast> instruction_list instruction integer_tail_byte
+%type<val> integer
+
 %%
 program:
-       instruction program
-       |
+       instruction_list { analyze_ast($1); ast_free($1); }
+
+instruction_list:
+       instruction instruction_list { $$ = ast_set_next($1, $2); }
+       |                            { $$ = NULL; }
        ;
 
 instruction:
-  start
-  | baud integer
-  | control
-  | safe
-  | full
-  | spot
-  | cover
-  | demo integer
-  | drive integer integer
-  | lsd integer
-  | led integer integer integer
-  | song integer integer integer_tail
-  | play integer
-  | sensors integer
-  | cad
-  | plsd integer integer integer
-  | drivedir integer integer
-  | digout integer
-  | stream integer integer_tail
-  | qlist integer integer_tail
-  | togglestrm integer
-  | sendir integer
-  | script program end
-  | playscript
-  | showscript
-  | waittime integer
-  | waitdist integer
-  | waitangle integer
-  | waitevent integer
-  ;
+           start               { $$ = create_op_node(128, 0); }
+           | baud integer      { $$ = create_op_node(129, 1, create_arg_node_1byte($2, NULL)); }
+           | control           { $$ = create_op_node(130, 0); }
+           | safe              { $$ = create_op_node(131, 0); }
+           | full              { $$ = create_op_node(132, 0); }
+           | spot              { $$ = create_op_node(134, 0); }
+           | cover             { $$ = create_op_node(135, 0); }
+           | demo integer      { $$ = create_op_node(136, 1, create_arg_node_1byte($2, NULL)); }
+           | drive integer integer
+                               { $$ = create_op_node(137, 2, create_arg_node_2byte($2, NULL),
+                                                             create_arg_node_2byte($3, NULL)); }
+           | lsd integer       { $$ = create_op_node(138, 1, create_arg_node_1byte($2, NULL)); }
+           | led integer integer integer
+                               { $$ = create_op_node(139, 3, create_arg_node_1byte($2, NULL),
+                                                             create_arg_node_1byte($3, NULL),
+                                                             create_arg_node_1byte($4, NULL)); }
+           | song integer integer_tail_byte
+                               { $$ = create_op_node(140, 1, create_arg_node_1byte($2, $3));   }
+           | play integer      { $$ = create_op_node(141, 1, create_arg_node_1byte($2, NULL)); }
+           | sensors integer   { $$ = create_op_node(142, 1, create_arg_node_1byte($2, NULL)); }
+           | cad               { $$ = create_op_node(143, 0); }
+           | plsd integer integer integer
+                               { $$ = create_op_node(134, 3, create_arg_node_1byte($2, NULL),
+                                                             create_arg_node_1byte($3, NULL),
+                                                             create_arg_node_1byte($4, NULL)); }
+           | drivedir integer integer
+                               { $$ = create_op_node(145, 2, create_arg_node_2byte($2, NULL),
+                                                             create_arg_node_2byte($3, NULL)); }
+           | digout integer    { $$ = create_op_node(147, 1, create_arg_node_1byte($2, NULL)); }
+           | stream integer_tail_byte
+                               { $$ = create_op_node(148, 1, $2); }
+           | qlist integer_tail_byte
+                               { $$ = create_op_node(149, 1, $2); }
+           | togglestrm integer
+                               { $$ = create_op_node(150, 1, create_arg_node_1byte($2, NULL)); }
+           | sendir integer    { $$ = create_op_node(151, 1, create_arg_node_1byte($2, NULL)); }
+           | script instruction_list end
+                               { $$ = create_op_node(152, 1, $2); }
+           | playscript        { $$ = create_op_node(153, 0); }
+           | showscript        { $$ = create_op_node(154, 0); }
+           | waittime integer  { $$ = create_op_node(155, 1, create_arg_node_1byte($2, NULL)); }
+           | waitdist integer  { $$ = create_op_node(156, 1, create_arg_node_2byte($2, NULL)); }
+           | waitangle integer { $$ = create_op_node(157, 1, create_arg_node_2byte($2, NULL)); }
+           | waitevent integer { $$ = create_op_node(158, 1, create_arg_node_1byte($2, NULL)); }
+           ;
 
-integer_tail:
-            integer integer_tail
-            |
+integer_tail_byte:
+            integer integer_tail_byte   { $$ = create_arg_node_1byte($1, $2); }
+            |                           { $$ = NULL; }
             ;
 %%
 
