@@ -1,8 +1,10 @@
 #include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 #include <stdio.h>
 #include "ast.h"
+#include "analysis.h"
 
 const handle_args_t handle_args[159] = {
   [128] = start_handle_args,
@@ -73,7 +75,6 @@ create_op_node(char opcode, int num_args, ...)
       *arg = va_arg(ap, ast_t *);
       arg = &(*arg)->arguments;
     }
-    *arg = NULL;
     va_end(ap);
   } else {
     node->arguments = NULL;
@@ -256,6 +257,7 @@ led_handle_args(ast_t *a, int *length)
 char *
 song_handle_args(ast_t *a, int *length)
 {
+  fprintf(stderr, "ERROR: Method not implemented (song).\n");
   return NULL;
 }
 
@@ -298,6 +300,7 @@ digout_handle_args(ast_t *a, int *length)
 char *
 stream_handle_args(ast_t *a, int *length)
 {
+  fprintf(stderr, "ERROR: Method not implemented (stream).\n");
   return NULL;
 }
 
@@ -322,7 +325,19 @@ sendir_handle_args(ast_t *a, int *length)
 char *
 script_handle_args(ast_t *a, int *length)
 {
-  return NULL;
+  char *out;
+  int len = get_ast_char(a->arguments, &out);
+
+  /* return format [script opcode][len][script] + '\0' */
+  char *ret = (char *) malloc(sizeof(char) * (len + 2 + 1));
+  ret[0] = a->payload.opcode;
+  ret[1] = (char) len;
+  ret[len + 2] = '\0';
+  memcpy(ret + 2, out, len);
+
+  *length = len + 2;
+  free(out);
+  return ret;
 }
 
 char *

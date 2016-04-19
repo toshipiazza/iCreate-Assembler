@@ -66,3 +66,16 @@ analyze_ast(ast_t *ast)
   }
   bin_string_free(data);
 }
+
+int
+get_ast_char(ast_t *ast, char **in)
+{
+  bin_string_t *data = bin_string_init();
+  *in = NULL;
+  if (analyze_ast_recursive(ast, data)) {
+    *in = data->data;
+  }
+  int len = data->len;
+  free(data);
+  return len;
+}
