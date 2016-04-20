@@ -18,14 +18,14 @@ map one to one:
 ```
 start         Start                       drivedir      Drive Direct
 baud          Baud                        digout        Digital Outputs
-control       Control                     stream        Stream               
+control       Control                     stream        Stream
 safe          Safe                        qlist         Query List
 full          Full                        togglestrm    Pause/Resume Stream
 spot          Spot                        sendir        Send IR
 cover         Cover                       script        Script
 demo          Demo                        playscript    Play Script
 drive         Drive                       showscript    Show Script
-lsd           Low Side Drivers            waittime      Wait Time                      
+lsd           Low Side Drivers            waittime      Wait Time
 led           LEDs                        waitdist      Wait Distance
 song          Song                        waitangle     Wait Angle
 play          Play                        waitevent     Wait Event
