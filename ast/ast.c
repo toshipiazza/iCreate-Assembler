@@ -317,15 +317,17 @@ digout_handle_args(ast_t *a, int *length)
 char *
 stream_handle_args(ast_t *a, int *length)
 {
-  /* These have the same handling, and neither of these throw.
-   * If the arguments are invalid, we throw a syntax error in yacc. */
-  return song_handle_args(a, length);
+  /* TODO (stream) */
+  fprintf(stderr, "ERROR: Method not implemented (stream).\n");
+  return NULL;
 }
 
 char *
 qlist_handle_args(ast_t *a, int *length)
 {
-  return handle_one_byte_args("qlist", a, 2, length);
+  /* TODO (qlist) */
+  fprintf(stderr, "ERROR: Method not implemented (qlist).\n");
+  return NULL;
 }
 
 char *
