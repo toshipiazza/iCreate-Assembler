@@ -257,6 +257,7 @@ led_handle_args(ast_t *a, int *length)
 char *
 song_handle_args(ast_t *a, int *length)
 {
+  /* TODO (song) */
   fprintf(stderr, "ERROR: Method not implemented (song).\n");
   return NULL;
 }
@@ -300,6 +301,7 @@ digout_handle_args(ast_t *a, int *length)
 char *
 stream_handle_args(ast_t *a, int *length)
 {
+  /* TODO (stream) */
   fprintf(stderr, "ERROR: Method not implemented (stream).\n");
   return NULL;
 }

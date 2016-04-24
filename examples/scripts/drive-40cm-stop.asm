@@ -3,3 +3,4 @@ script
   waitdist 400
   drive 0 0
   end
+playscript

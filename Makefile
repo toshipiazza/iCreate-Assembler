@@ -1,4 +1,4 @@
-CFLAGS  ?= -Wall -g -D_DEBUG -std=gnu99 -m32
+CFLAGS  ?= -Wall -g -D_DEBUG -std=gnu99
 
 SOURCES := iCreate.c ast/ast.c ast/analysis.c parser/assembler.tab.c parser/lex.yy.c
 OBJECTS := $(patsubst %.c,%.o,$(SOURCES))

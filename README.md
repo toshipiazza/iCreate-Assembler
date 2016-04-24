@@ -38,5 +38,6 @@ plsd          PWM Low Side Drivers
 > to see exactly how to use the script command.
 
 # TODO
-* output to file in binary
-* argument handling on integer bounds for all instructions
+[ ] output to file in binary
+[ ] argument handling on integer bounds for all instructions
+[ ] support songs and streams
