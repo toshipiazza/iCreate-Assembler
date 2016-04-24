@@ -40,4 +40,4 @@ plsd          PWM Low Side Drivers
 # TODO
 [ ] output to file in binary
 [ ] argument handling on integer bounds for all instructions
-[ ] support songs and streams
+[x] support songs and streams. Still need to test!

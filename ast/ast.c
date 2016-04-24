@@ -257,9 +257,25 @@ led_handle_args(ast_t *a, int *length)
 char *
 song_handle_args(ast_t *a, int *length)
 {
-  /* TODO (song) */
-  fprintf(stderr, "ERROR: Method not implemented (song).\n");
-  return NULL;
+  assert(a->is_operation);
+  int num_notes = num_args(a->arguments->arguments, 0);
+
+  *length = 3 + num_notes;
+  char *ret = (char *) malloc(sizeof(char) * (3 + num_notes + 1));
+  ret[0] = a->payload.opcode;
+  ret[1] = (char) a->arguments->payload.value1b;
+  ret[2] = (char) num_notes;
+  ret[3+num_notes] = '\0';
+
+  char *tmp = &ret[3];
+  ast_t *arg = a->arguments->arguments;
+  while (arg != NULL) {
+    tmp[0] = (char) arg->payload.value1b;
+    arg = arg->arguments;
+    tmp++;
+  }
+
+  return ret;
 }
 
 char *
@@ -301,9 +317,9 @@ digout_handle_args(ast_t *a, int *length)
 char *
 stream_handle_args(ast_t *a, int *length)
 {
-  /* TODO (stream) */
-  fprintf(stderr, "ERROR: Method not implemented (stream).\n");
-  return NULL;
+  /* These have the same handling, and neither of these throw.
+   * If the arguments are invalid, we throw a syntax error in yacc. */
+  return song_handle_args(a, length);
 }
 
 char *
