@@ -11,7 +11,7 @@ byte of the instruction sequence which can be sent to the iCreate through serial
 
 # Syntax
 The syntax is generally `<instruction> <arg1> <arg2> <...>`. Follow the guide
-[here](http://www.irobot.com/filelibrary/create/Create%20Manual_Final.pdf)
+[here](http://www.irobot.com/filelibrary/pdfs/hrd/create/Create%20Open%20Interface_v2.pdf)
 on page 22 to get the instructions and their intended arguments. The instructions
 map one to one:
 
