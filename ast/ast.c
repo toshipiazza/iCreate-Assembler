@@ -317,17 +317,32 @@ digout_handle_args(ast_t *a, int *length)
 char *
 stream_handle_args(ast_t *a, int *length)
 {
-  /* TODO (stream) */
-  fprintf(stderr, "ERROR: Method not implemented (stream).\n");
-  return NULL;
+  assert(a->is_operation);
+  int num_packets = num_args(a->arguments, 0);
+
+  *length = 2 + num_packets;
+  char *ret = (char *) malloc(sizeof(char) * (2 + num_packets + 1));
+  ret[0] = a->payload.opcode;
+  ret[1] = (char) num_packets;
+  ret[2+num_packets] = '\0';
+
+  char *tmp = &ret[2];
+  ast_t *arg = a->arguments;
+  while (arg != NULL) {
+    tmp[0] = (char) arg->payload.value1b;
+    arg = arg->arguments;
+    tmp++;
+  }
+
+  return ret;
 }
 
 char *
 qlist_handle_args(ast_t *a, int *length)
 {
-  /* TODO (qlist) */
-  fprintf(stderr, "ERROR: Method not implemented (qlist).\n");
-  return NULL;
+  /* stream_handle_args has same form and zero error checking... can't fail. */
+  /* TODO: does the pdf have a typo? */
+  return stream_handle_args(a, length);
 }
 
 char *
