@@ -35,7 +35,11 @@ plsd          PWM Low Side Drivers
 ```
 
 > Note! Using the script command has special syntax. Look in the examples/scripts directory
-> to see exactly how to use the script command.
+> to see exactly how to use the script command. Also, the stream, song and qlist instructions
+> take in a variable number of arguments, omit the first argument in these cases (number of
+> packets).
+> Note #2! The pdf is actually wrong for qlist; the iCreate does take in the number of packets
+> for qlist. Again this is implicit in the language so it doesn't affect how to use this program.
 
 # TODO
 [ ] output to file in binary
