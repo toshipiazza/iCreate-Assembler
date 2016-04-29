@@ -46,3 +46,4 @@ plsd          PWM Low Side Drivers
 # TODO
 [ ] output to file in binary
 [ ] argument handling on integer bounds for all instructions
+[ ] Windows support (should make lex/yacc output in a platform independent way)
