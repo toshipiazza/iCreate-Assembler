@@ -47,3 +47,7 @@ plsd          PWM Low Side Drivers
 [ ] output to file in binary
 [ ] argument handling on integer bounds for all instructions
 [ ] Windows support (should make lex/yacc output in a platform independent way)
+
+# NOTICE
+This project is licensed with the MIT license. `getopt.[ch]` are under the AT&T Public license;
+this code was gotten from <http://note.sonots.com/Comp/CompLang/cpp/getopt.html>
