@@ -9,6 +9,8 @@ file. The usage is `iCreate.exe input_file.asm`, which will produce an output as
 for example: `152 13 137 1 44 128 0 156 1 144 137 0 0 0 0`. These numbers represent each
 byte of the instruction sequence which can be sent to the iCreate through serial.
 
+Alternatively you can use CMake to build the project.
+
 # Syntax
 The syntax is generally `<instruction> <arg1> <arg2> <...>`. Follow the guide
 [here](http://www.irobot.com/filelibrary/pdfs/hrd/create/Create%20Open%20Interface_v2.pdf)

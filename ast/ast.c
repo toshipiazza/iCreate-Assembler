@@ -71,7 +71,8 @@ create_op_node(char opcode, int num_args, ...)
     /* insert args */
     va_start(ap, num_args);
     arg = &node->arguments;
-    for (int i = 0; i < num_args; ++i) {
+    int i;
+    for (i = 0; i < num_args; ++i) {
       *arg = va_arg(ap, ast_t *);
       arg = &(*arg)->arguments;
     }

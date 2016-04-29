@@ -59,8 +59,9 @@ void
 analyze_ast(ast_t *ast)
 {
   bin_string_t *data = bin_string_init();
+  int i;
   if (analyze_ast_recursive(ast, data)) {
-    for (int i = 0; i < data->len; ++i) {
+    for (i = 0; i < data->len; ++i) {
       printf("%u ", (unsigned char) data->data[i]);
     }
     printf("\n");
