@@ -44,9 +44,9 @@ plsd          PWM Low Side Drivers
 > for qlist. Again this is implicit in the language so it doesn't affect how to use this program.
 
 # TODO
-[ ] output to file in binary  
-[ ] argument handling on integer bounds for all instructions  
-[ ] Windows support (should make lex/yacc output in a platform independent way)
+* [ ] output to file in binary  
+* [ ] argument handling on integer bounds for all instructions  
+* [ ] Windows support (should make lex/yacc output in a platform independent way)
 
 # NOTICE
 This project is licensed with the MIT license. `getopt.[ch]` are under the AT&T Public license;
